@@ -16,9 +16,5 @@
     <div class="container">
         @yield('content')
     </div>
-
-    <footer class="text-black text-center py-3 mt-4">
-        <p>© {{ date('Y') }} My Portfolio</p>
-    </footer>
 </body>
 </html>
