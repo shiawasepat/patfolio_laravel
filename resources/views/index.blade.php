@@ -3,7 +3,7 @@
 @section('title', 'Welcome')
 
 @section('content')
-<div class="row align-items-center">
+<div class="min-h-screen flex align-items-center">
     <div class="col-lg-8">
         <h1 class="display-5">Hi, I’m Patrick.</h1>
         <p class="lead">I’m an informatics student and front-end developer who loves designing.</p>
