@@ -21,5 +21,11 @@ class DatabaseSeeder extends Seeder
         ]);
     
         $this->call(TestimonySeeder::class);
+
+        // Create sample skills
+        \App\Models\Skill::factory(8)->create();
+
+        // Create sample projects
+        \App\Models\Project::factory(5)->create();
     }
 }
