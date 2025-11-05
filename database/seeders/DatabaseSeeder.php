@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,8 +14,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // CLear existing data
+        User::truncate();
+        Post::truncate();
+        Category::truncate();
 
+        // Create sample categories
+        $categories = Category::factory(5)->create();
+
+        // Create sample users and posts
+        $users = User::factory(10)->create();
+
+        // Create posts 
+        Post::factory(30)->create([
+            'user_id' => $users->random()->id,
+            'category_id' => $categories->random()->id,
+        ]);
+
+        // User::factory(10)->create();
+        
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
@@ -28,4 +46,5 @@ class DatabaseSeeder extends Seeder
         // Create sample projects
         \App\Models\Project::factory(5)->create();
     }
+    
 }

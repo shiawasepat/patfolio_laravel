@@ -57,4 +57,5 @@ class Project extends Model
     {
         return storage_path('app/public/' . $this->getRawOriginal('image_url'));
     }
+
 }

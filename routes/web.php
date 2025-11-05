@@ -3,6 +3,7 @@
 use App\Models\Testimony;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestimonyController;
 
 Route::get('/', function () {
@@ -17,8 +18,11 @@ Route::get('/about', function () {
     return view('about');
 });
 
+
+
 Route::get('/portfolio', [PortfolioController::class, 'home'])->name('home');
 Route::get('/skills', [PortfolioController::class, 'skills'])->name('skills');
 Route::get('/projects', [PortfolioController::class, 'projects'])->name('projects');
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
 Route::get('/testimonies', [TestimonyController::class, 'index'])->name('testimonies');

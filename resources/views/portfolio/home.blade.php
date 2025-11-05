@@ -20,5 +20,10 @@
     <div class="container mx-auto px-6">
         @yield('content')
     </div>
+
+    <a href="/" class="fixed bottom-4 right-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded
+    dark:bg-indigo-400 dark:hover:bg-indigo-400/50 dark:transition-all">
+        Back to Home
+    </a>
 </body>
 </html>

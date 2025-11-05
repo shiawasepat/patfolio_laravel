@@ -15,7 +15,7 @@
         <div class="mt-3">
             <a href="/social" class="inline-flex items-center px-4 py-2 border 
             border-white/10 text-white rounded-md hover:bg-white/5">Socials</a>
-            <a href="{{ route('portfolio.home') }}" 
+            <a href="{{ route('home') }}" 
             class="inline-flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded
             dark:bg-indigo-400 dark:hover:bg-indigo-400/50 dark:transition-all">
                 Portfolio
@@ -23,7 +23,11 @@
             <a href="{{ route('testimonies') }}" class="inline-flex items-center px-4 py-2 bg-indigo-600 
             hover:bg-indigo-700 text-white rounded
             dark:bg-indigo-400 dark:hover:bg-indigo-400/50 dark:transition-all">Testimonies</a>
-            
+            <a href="{{ route('posts.index') }}" class="inline-flex items-center px-4 py-2 bg-indigo-600
+            hover:bg-indigo-700 text-white rounded
+            dark:bg-indigo-400 dark:hover:bg-indigo-400/50 dark:transition-all">
+                Blog Posts
+            </a>
         </div>
     </div>
 
