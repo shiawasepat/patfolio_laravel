@@ -24,9 +24,10 @@ class DatabaseSeeder extends Seeder
 
         // Create sample users and posts
         $users = User::factory(10)->create();
+        $categories = Category::all();
 
         // Create posts 
-        Post::factory(30)->create([
+        Post::factory()->create([
             'user_id' => $users->random()->id,
             'category_id' => $categories->random()->id,
         ]);

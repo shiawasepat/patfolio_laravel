@@ -3,21 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\JsonResponse;
 
 class PostController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource for the API.
      */
-    public function index(): View
+    public function indexApi(): JsonResponse
     {
-        // Fetch posts with their related user and category
-        // We use latest() to order them by newest first and paginate() for page links
-        $posts = Post::with(['user', 'category'])->latest()->paginate(10);
+        // Eager load the user and category relationships for a more useful API response
+        $posts = Post::with(['user', 'category'])->latest()->get();
 
-        // Pass the $posts variable to the 'posts.index' view
+        return response()->json(['data' => $posts]);
+    }
+
+    public function showpage(): View
+    {
+        $posts = Post::with(['user', 'category'])->latest()->paginate(10);
+        
         return view('posts.index', [
             'posts' => $posts
         ]);

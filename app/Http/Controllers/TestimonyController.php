@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use App\Models\Testimony;
 
 class TestimonyController extends Controller
 {
-    public function index()
+    public function index(): JsonResponse
     {
-        // use paginate() instead of get()
-        $testimonies = Testimony::with('user')->latest()->paginate(10);
+        $testimonies = Testimony::with(['user'])->latest()->get();
 
-        return view('testimonies', compact('testimonies'));
+        return response()->json(['data' => $testimonies]);
+    }
+
+    public function show($id): JsonResponse
+    {
+        $testimony = Testimony::with(['user'])->findOrFail($id);
+
+        return response()->json(['data' => $testimony]);
     }
 }

@@ -23,6 +23,6 @@ Route::get('/about', function () {
 Route::get('/portfolio', [PortfolioController::class, 'home'])->name('home');
 Route::get('/skills', [PortfolioController::class, 'skills'])->name('skills');
 Route::get('/projects', [PortfolioController::class, 'projects'])->name('projects');
-Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts', [PostController::class, 'showPage'])->name('posts.index');
 
 Route::get('/testimonies', [TestimonyController::class, 'index'])->name('testimonies');
